@@ -26,7 +26,7 @@ class ConfigController extends Controller
        
         $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?latlng='
         .$request->lat.','.$request->lng
-        .'&key='."Your key the one you put in your flutter");
+        .'&key='."AIzaSyCdIXZsLK1JPAykPKuGkPsqAlTBx18O8eM");
         return $response->json();
     }
         public function get_zone(Request $request)
