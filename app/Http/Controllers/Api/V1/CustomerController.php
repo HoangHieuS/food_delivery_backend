@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller{
     
-     public function address_list(Request $request)
+    public function address_list(Request $request)
     {
         return response()->json(CustomerAddress::where('user_id', $request->user()->id)->latest()->get(), 200);
     }
@@ -24,7 +24,7 @@ class CustomerController extends Controller{
         //unset($data['orders']);
         return response()->json($data, 200);
     }
-        public function add_new_address(Request $request)
+    public function add_new_address(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'contact_person_name' => 'required',
@@ -51,7 +51,7 @@ class CustomerController extends Controller{
         DB::table('customer_addresses')->insert($address);
         return response()->json(['message' => trans('messages.successfully_added')], 200);
     }
-        public function update_address(Request $request,$id)
+    public function update_address(Request $request,$id)
     {
         $validator = Validator::make($request->all(), [
             'contact_person_name' => 'required',
